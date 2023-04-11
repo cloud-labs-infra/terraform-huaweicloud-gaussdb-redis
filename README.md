@@ -1,1 +1,1 @@
-# Module name
+# Huawei Cloud GaussDB NoSQL Redis
