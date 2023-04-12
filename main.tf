@@ -4,7 +4,7 @@ data "huaweicloud_availability_zones" "zones" {
 
 locals {
   availability_zone   = length(var.availability_zones) == 0 ? join(",", slice(data.huaweicloud_availability_zones.zones.names, 0, var.az_number)) : join(",", var.availability_zones)
-  redis_instance_name = var.name_postfix == null ? var.name : format("%s-redis-%s", var.name, var.name_postfix)
+  redis_instance_name = var.name_postfix == null ? format("%s-redis", var.name) : format("%s-redis-%s", var.name, var.name_postfix)
 }
 
 resource "huaweicloud_gaussdb_redis_instance" "main" {
